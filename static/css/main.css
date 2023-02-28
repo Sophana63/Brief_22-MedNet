@@ -222,7 +222,6 @@ input[type=file]::file-selector-button:hover {
 }
 
 
-
 .navbar-toggle-btn {
   display: none;
   position: fixed;
@@ -240,7 +239,7 @@ input[type=file]::file-selector-button:hover {
   #menu {
     opacity: 0;
     visibility: hidden;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: -160px;
     width: 160px;
