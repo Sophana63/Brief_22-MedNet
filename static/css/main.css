@@ -1,0 +1,274 @@
+@font-face {
+    font-family: optima;
+    src: url(../fonts/OPTIMA.TTF);
+}
+
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+* {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+body {  
+  color: #eee;
+  font-family: optima;
+}
+
+.column {
+  flex: 1;
+  min-height: 100vh;
+  height: 100% auto;
+  background-color: #002d36;
+  font-family: Lato, sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: transform 0.8s ease;
+}
+  
+.drop-files {
+  margin: 15px;
+}
+
+.drop-files h1 {
+  font-size: 1.3rem;
+  font-weight: lighter;
+  background-color: #1A1E23;
+  padding: 17px;
+}
+
+.drop-files .texte {
+  font-size: 0.9rem;
+  text-transform: none;
+  margin: 20px 0 20px 20px;
+}
+
+.drop-files .texte h2 {
+  color: #d2741b;
+}
+
+.drop-files .texte p {
+  margin: 12px 0 12px 0;
+}
+.drop-files .texte p b {
+  color: #367cf5;
+}
+
+.drop-files .texte table {
+  width: 90%;
+}
+
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #002026;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+.drop-files .texte img {
+  width: 25%;
+}
+
+.drop-files img {
+  width: 100%;
+  margin-bottom: 15px;
+}
+  
+.drop-container {
+    margin: 15px;
+    vertical-align: middle;
+}
+  
+.drop-container img{
+    width: 40px;
+    height: 40px;  
+    vertical-align: middle;  
+}
+
+.drop-container .predict_button button {
+  margin-top: 25px ;
+  width: 200px;
+  height: 40px;
+  border: 1x solid #ecf0f1;
+  font-family: Lato, sans-serif;
+  background-color: rgba(178, 34, 52, 1);
+  color: #ecf0f1;
+  transition: 0.3s;
+}
+
+.drop-container .predict_button button:hover {  
+  border: 1x solid #ecf0f1;
+  background-color: rgb(184, 133, 22);
+  color: #ecf0f1;
+}
+
+input[type=file]::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: #084cdf;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+  }
+  
+input[type=file]::file-selector-button:hover {
+    background: #0d45a5;
+}  
+
+  
+
+#menu
+{
+  position: relative;
+  width: 24%;
+  min-width: 200px;
+  background-color: #1A1E23;
+}
+
+#menu ul {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  list-style-type: none;
+}
+#menu ul li {
+  padding: 6px 0;
+}
+#menu ul li a {
+  position: relative;
+  display: block;
+  padding: 4px 0;
+  font-family: Lato, sans-serif;
+  color: #ecf0f1;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+#menu ul li a::after {
+  position: absolute;
+  content: "";
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #3498db;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s;
+}
+#menu ul li a:hover {
+  color: #95a5a6;
+}
+#menu ul li a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.menu .logo {
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 8px 0 30px 0;
+  font-family: Lato, sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.menu .logo hr{
+  border: 1px solid #eee;
+  margin: 6px 40px 6px 40px;
+}
+
+@media screen and (max-width: 768px) {
+  
+	.column .drop-files {
+		flex-direction: column;
+	}	
+}
+
+
+
+.navbar-toggle-btn {
+  display: none;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
+  border: 5px solid #009879;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+@media (max-width: 898px) {
+
+  #menu {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: -160px;
+    width: 160px;
+    padding: 10px;
+    border-right: 1px solid #fff;
+    max-height: 0;
+    transition: all 0.5s ease-in-out;
+  }
+
+  #menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(160px); 
+    max-height: 450px;
+    border-bottom: 1px solid #fff;
+  }
+
+  .navbar-toggle-btn {
+    display: block;
+    color: #002026;
+    font-size: 1.5rem;
+  } 
+
+  .column {
+		flex-basis: 100%;
+    width: 100%;
+	}
+  
+}
+
+  

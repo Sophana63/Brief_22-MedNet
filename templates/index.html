@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="column">        
+    <div class="drop-files">  
+        <h1><i class="fa-solid fa-hospital-user"></i> __ MEDNET</h1>
+        <hr>
+        <img src="{{url_for('static', filename='images/radiologie-poumon-medecin.jpeg')}}" />
+        <div class="texte">
+            <h2>Contexte du projet</h2>
+            <p>L’objectif étant de prouver les compétences techniques de notre start-up et de faire adhérer le corps médical au projet DATA Health HUB. Dans un souci d’accessibilité aux données, le POC se fera avec les données publiques du dataset MedNist.</p>
+            <p>Nous partons d’une application existante développée par les équipes du CHRU, un algorithme développé via Pytorch qui propose déjà de beaux résultats ,L'application sera développée en flask et permet de classifier sa radiographie.</p>
+            <p>Voici les missions attendues :</p>
+            <p>                        
+                <ul>
+                    <li>Implémenter un modèle de classification ( Transfert Learning) avec Keras /TensorFlow</li>
+                    <li>Amélioration du modèle MedNet ( Pytorch) : Un modèle de DeepLearning a été élaboré. Il utilise un réseau de neurones afin de pouvoir classer les images médicales dans ces 6 catégories. Le modèle a obtenu un taux de 99% de prédictions correctes ce qui est un bon score.</li>
+                    <li>Création d'une interface et Evolution fonctionnelle : * L’application comprend 2 pages. L’application permet de sélectionner un fichier image et de le télécharger :Puis elle permet d’obtenir sa classification. Les informations affichées sont « ID » qui correspond au numéro allant de 1 à 6 de la classe et « Class » qui correspond au nom de la classe. L'application sera déployée via AzureWebapp. L'interface pourra se faire avec Flask et /ou Streamlit</li>                    
+                </ul>
+            </p>
+            <p>BONUS Il vous est demandé de pouvoir sélectionner un, plusieurs ou tous les fichiers d’un dossier, de le ou les télécharger et de prédire la classification.</p>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}   

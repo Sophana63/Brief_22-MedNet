@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="drop-files">  
+    <h1><i class="fa-solid fa-image"></i> __ Nos prédictions</h1>
+    <hr>
+    <div class="texte">
+        <div class="markdown-body">
+            <!-- content of README.md in HTML format -->
+        {{ content|safe }}    
+        </div>
+    </div>                 
+</div>
+
+{% endblock %}

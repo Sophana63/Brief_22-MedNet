@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}        
+<div class="drop-files">  
+    <h1><i class="fa-solid fa-image"></i> __ Prédiction d'une ou plusieurs images</h1>
+    <hr>
+    <div class="texte">
+        <p>Un modèle de DeepLearning a été élaboré. Il utilise un réseau de neurones afin de pouvoir classer les images médicales dans ces 6 catégories. Le modèle a obtenu un taux de plus de 99% de prédictions correctes ce qui est un bon score.</p>
+        <br>
+        <p>Veuillez sélectionnez une ou plusieurs images.</p>
+    </div>
+
+    <label for="images" class="drop-container">                    
+        <form method="post" action="/predict" enctype="multipart/form-data">   
+            <img src="{{url_for('static', filename='images/file-manager.png')}}" />                     
+            <input type="file" id="image" name="image" accept="image/*" required multiple>
+            <div class="predict_button">
+                <p><button><i class="fa-solid fa-book"></i> Prédire</button></p>
+            </div>
+        </form>
+    </label>
+</div>
+{% endblock %} 

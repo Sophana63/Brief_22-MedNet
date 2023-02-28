@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="drop-files">  
+        <h1><i class="fa-regular fa-clipboard"></i> __ Mon rapport</h1>
+        <hr>
+        <div class="texte">
+          <h2>Benchmark : performance du modèle 99% à battre</h2>
+          <p>
+            Pour augmenter cette performance, j'ai utilisé le notebook fourni par le brief et changé quelques hyper-paramètres. Les voici:
+            <ul>
+              <li>learnRate = 0.03 (0.01)</li>
+              <li>batchSize = 400 (300)</li>
+              <li>t2vEpochs = 4 (3)</li>
+            </ul>
+          </p>
+          <p><i>(les valeurs entre parenthèse sont d'origine)</i></p>
+          <p>Le score obtenu avec ces changements est de <b style="color: #d2741b;">99.738</b></p>                     
+        </div>
+        <div class="texte">
+          <h2>Interface</h2>  
+          <p>J'ai utilsé Flask, un micro framework open-source de développement web en Python. Il est classé comme microframework car il est très léger. Flask a pour objectif de garder un noyau simple mais extensible.</p>
+          <p>Le fichier principal a consulté se trouve à la racine du projet. Il se nomme <b>index.py</b>. C'est ici que sont créés nos routes ainsi que leurs fonctions.</p>
+          <p>Pour la prédictions des images, il faut se situer sur la route @app.route('/predict', methods=['POST']), à la ligne 57.</p>
+        </div> 
+        <div class="texte">
+          <h2>Détail de la fonction <b>predict()</b></h2>  
+          <p><code>files = request.files.getlist('image')</code><br>
+          Ce code permet de récupérer toutes les images envoyées sur le serveur. Pour chaque image, je vais les enregistrer en local, dans le dossier <pre>/uploads</pre></p> 
+          <hr>
+          <p>Ensuite je vais effectuer une boucle permettant d'ouvrir ces images et utiliser une méthode de torch pour mettre à l'échelle celles-ci:
+            <pre>imageTensor = torch.stack([scaleImage(Image.open('static/uploads/' + image))])</pre>
+          </p>
+          <hr>
+          <p>Dans le notebook MedNet, après avoir testé plusieurs paramètres et obtenu une bonne précision, j'ai sauvegardé le modèle (directement à la racine du projet). Après la mise à l'échelle des images, je le passe dans mon modèle :
+            <pre>output = model(imageTensor)</pre>
+            <pre>>>>> model = torch.load("static/saved_model")</pre>
+          </p>
+          <hr>
+          <p>Après avoir entrainé mes images grâce à mon modèle, je fais une prédiction :
+            <pre>predicted_class = torch.max(output, dim=1)[1]</pre>
+            Je récupère ainsi la classe.
+          </p>
+          <hr>
+          <p>Auparavant, j'ai initialisé une liste de label qui me permettra de changer le numéro de classe en une chaine de caractères:
+            <pre>label_names = ['AbdomenCT', 'BreastMRI', 'ChestCT', 'CXR', 'Hand', 'HeadCT']</pre>
+            <pre>label = label_names[predicted_class]</pre>
+          </p>                  
+          <hr>
+          <p>Je mets tous les éléments (nom de l'image, numéro de classe et nom de la classe) dans une liste pour pouvoir les afficher dans une page HTML (render_template()).
+            <pre>file.append(image)
+file.append(predicted_class.item())
+file.append(label)
+            </pre>
+          </p>
+        </div>                
+    </div>
+        
+{% endblock %} 
