@@ -34,7 +34,9 @@ Pour installer les bibliothèques requises, exécutez la commande suivante :
 ```
 pip install -r requirements.txt
 ```
-Lien vers le fichier [requirements.txt]()
+Lien vers le fichier [requirements.txt](https://github.com/Sophana63/Brief_22-MedNet/blob/master/requirements.txt)
+
+
 Pour lancer l'application, exécutez la commande suivante :
 
 ```
